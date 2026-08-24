@@ -1,11 +1,16 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 #include "leer_linea.h"
 
 #define ERROR -1
+#define EXIT -2
+
+const char *SALIR = "Salir";
+
+
 char *leer_linea()
 {
-	//Inicializo un puntero.
 	
 	int size = 1;
 	
@@ -32,7 +37,6 @@ char *leer_linea()
 
 		if (aux == NULL) {
 			mal_reservado = true;
-			//Libero lo que ya reserve
 			free(linea);
 		} else {
 			linea = aux;
@@ -41,6 +45,7 @@ char *leer_linea()
 		c = fgetc(stdin);
 	}
 
+	//Cierro el string
 	linea[size - 1] = '\0';
 
 	if (mal_reservado) {
@@ -52,5 +57,51 @@ char *leer_linea()
 
 int leer_linea_ptr(char **ptr, size_t *tamaño)
 {
-	return ERROR;
+
+	//Verifico el puntero y el tamaño
+	if (ptr == NULL || tamaño == 0) {
+		return ERROR;
+	}
+
+	size_t total_leidos = 1;
+
+	int c = fgetc( stdin);
+
+	bool mal_reservado = false;
+
+	while (c != '\n' && !mal_reservado) {
+
+		if (total_leidos >= *tamaño) {
+			char *aux = realloc (*ptr, (*tamaño) + 1);
+			if (aux == NULL) {
+				mal_reservado = true;
+			}
+
+			if (!mal_reservado) {
+				*ptr = aux;
+			}
+
+			(*tamaño)++;
+		}
+
+		(*ptr)[total_leidos - 1] = (char)c;
+
+		c = fgetc(stdin);
+
+		total_leidos++;
+	}
+
+	if (strcmp(*ptr, SALIR) == 0) {
+		return EXIT;
+	}
+
+	if (mal_reservado) {
+		free(ptr);
+		return ERROR;
+	}
+
+	//Cierro el string
+	(*ptr)[total_leidos - 1] = '\0';
+
+	return total_leidos;
 }
