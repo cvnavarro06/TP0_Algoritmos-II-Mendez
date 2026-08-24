@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
                "Cerrando programa...");
         return ERROR;
     }
-    printf("Bienvenido %s, ingresa los nombres de los alumnos al sistema\n\n", nombre);
+    printf("\nBienvenido %s, ingresa los nombres de los alumnos al sistema\n\n", nombre);
 
     printf("Recueda que para salir del programa debes de ingresar 'Salir'\n\n");
 
@@ -40,6 +40,8 @@ int main(int argc, char *argv[])
         } else {
         
             printf("%s ha sido ingresado al sistema.\n", linea);
+
+            printf("El largo del nombre %s es de: %d\n\n", linea, c); 
         
             printf("Ingresa otro nombre: ");
         }
