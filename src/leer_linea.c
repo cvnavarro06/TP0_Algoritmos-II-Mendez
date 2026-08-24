@@ -6,7 +6,7 @@
 #define ERROR -1
 #define EXIT -2
 
-const char *SALIR = "Salir";
+const char *SALIDA = "Salir";
 
 
 char *leer_linea()
@@ -58,8 +58,8 @@ char *leer_linea()
 int leer_linea_ptr(char **ptr, size_t *tamaño)
 {
 
-	//Verifico el puntero y el tamaño
-	if (ptr == NULL || tamaño == 0) {
+	//Verifico el puntero
+	if (ptr == NULL) {
 		return ERROR;
 	}
 
@@ -72,7 +72,10 @@ int leer_linea_ptr(char **ptr, size_t *tamaño)
 	while (c != '\n' && !mal_reservado) {
 
 		if (total_leidos >= *tamaño) {
+			(*tamaño)++;
+			
 			char *aux = realloc (*ptr, (*tamaño) + 1);
+			
 			if (aux == NULL) {
 				mal_reservado = true;
 			}
@@ -81,7 +84,6 @@ int leer_linea_ptr(char **ptr, size_t *tamaño)
 				*ptr = aux;
 			}
 
-			(*tamaño)++;
 		}
 
 		(*ptr)[total_leidos - 1] = (char)c;
@@ -91,7 +93,10 @@ int leer_linea_ptr(char **ptr, size_t *tamaño)
 		total_leidos++;
 	}
 
-	if (strcmp(*ptr, SALIR) == 0) {
+	//Cierro el string
+	(*ptr)[total_leidos - 1] = '\0';
+
+	if (strcmp(*ptr, SALIDA) == 0) {
 		return EXIT;
 	}
 
@@ -100,8 +105,6 @@ int leer_linea_ptr(char **ptr, size_t *tamaño)
 		return ERROR;
 	}
 
-	//Cierro el string
-	(*ptr)[total_leidos - 1] = '\0';
-
-	return total_leidos;
+	//Corrijo el total con un -1
+	return total_leidos - 1;
 }
