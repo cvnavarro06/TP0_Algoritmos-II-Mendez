@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "leer_linea.h"
-#include "leer_linea.c"
 
 #define EXITO 0
+#define ERROR -1
+#define EXIT -2
+
 
 int main(int argc, char *argv[])
 {
@@ -15,12 +18,35 @@ int main(int argc, char *argv[])
                "Cerrando programa...");
         return ERROR;
     }
+    printf("Bienvenido %s, ingresa los nombres de los alumnos al sistema\n\n", nombre);
 
-    size_t tamanio;
+    printf("Recueda que para salir del programa debes de ingresar 'Salir'\n\n");
 
-    // leer_linea_ptr(&nombre, &tamanio);
-	
-    printf("Hola %s\n", nombre);
+    
+    size_t tamanio_l = 10;
+    char *linea = malloc(tamanio_l * sizeof(char));
+
+    printf("Ingresa un nombre: ");
+
+    bool salir = false;
+    
+    int c;
+    
+    while (!salir && (c = leer_linea_ptr(&linea, &tamanio_l)) != ERROR) {
+        
+        if (c == EXIT) {
+            salir = true;
+            printf("Saliendo del programa...\n");
+        } else {
+        
+            printf("%s ha sido ingresado al sistema.\n", linea);
+        
+            printf("Ingresa otro nombre: ");
+        }
+
+    }
+
+    free(linea);
 	
     free(nombre);
 	
