@@ -9,7 +9,7 @@
 const char *SALIDA = "Salir\n";
 
 /*
- * Las lineas de código comentadas son que en las pruebas de xanubot este lo pedido por el enunciado, lo comentado fue usado para testeo
+ * Las lineas de código extra, que escapan al enunciado del TP, son usadas para testeo.
 */
 
 char *leer_linea()

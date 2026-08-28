@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		       "Cerrando programa...");
 		return ERROR;
 	}
-	printf("\nBienvenido %s\nIngresa los nombres de los alumnos al sistema\n\n",
+	printf("\nBienvenido profesor/a %s\nIngresa los nombres de los alumnos al sistema\n\n",
 	       nombre);
 
 	printf("Recueda que para salir del programa debes de ingresar 'Salir'\n\n");
