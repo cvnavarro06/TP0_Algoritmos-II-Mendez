@@ -21,8 +21,7 @@
   * [1.2. Ejecutar el programa con Valgrind](#12-Para-ejecutar-el-programa-con-Valgrind)
 * [2. Funcionamiento](#2-funcionamieto)
 * [3. Decisiones de diseño](#3-decisiones-de-diseño)
-  * [3.1. Diagrama de memoria](#31-Diagrama-de-memoria)
-* [4. Respuestas a las preguntas teóricas](#4-Respuestas-a-las-preguntas-teóricas)
+* [4. Respuestas a las preguntas teóricas](#4-respuestas-a-las-preguntas-teóricas)
   * [4.1 Pregunta 1](#41-pregunta-1)
   * [4.2 Pregunta 2](#42-pregunta-2)
 
