@@ -113,14 +113,13 @@ int leer_linea_ptr(char **ptr, size_t *tamaño)
 			}
 		}
 		if (!mal_reservado) {
-			(*ptr)[total_leidos - 1] = (char)c;
-
 			if (c == '\n') {
 				(*ptr)[total_leidos - 1] = (char)c;
 				salto_linea = true;
 				total_leidos++;
 				(*tamaño)++;
 			} else {
+				(*ptr)[total_leidos - 1] = (char)c;
 				c = fgetc(stdin);
 				total_leidos++;
 			}
