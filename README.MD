@@ -51,11 +51,24 @@ En caso de que no se le pueda asignar memoría por un error, o por error a la ho
 
 En base a la segunda función, la misma tiene un proposito de estár en un `while`, ya que la misma esperará a que se ingresen nombres hasta que el usuario quiera salir, el mismo podrá hacerlo escribiendo por consola la palabra reservada `'Salir'`.
 
-DIA
+### Funcionamiento de [test.c](test.c)
 
-GRA
+<div align="center">
+	<img src="img/Diagrama_flujo_general.png" alt="Diagrama de flujo del funcionamiento general del programa" width="500" height="1300"/>
+</div>
 
-MAS
+---
+### Funcionamiento de la funcion `leer_linea()`
+<div align="center">
+	<img src="img/Diagrama_de_funcion_leer_linea_().png" alt="Diagrama de flujo de la función leer_linea()" width="700" height="1000"/>
+</div>
+
+---
+
+### Funcionamiento de la funcion `leer_linea_ptr()`
+<div align="center">
+	<img src="img/Diagrama_de_funcion_leer_linea_ptr_().png" alt="Diagrama de flujo función leer_linea_ptr()" width="700" height="1000"/>
+</div>
 
 
 ## 3. Decisiones de diseño
