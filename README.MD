@@ -65,14 +65,38 @@ En base a la segunda función, la misma tiene un proposito de estár en un `whil
 
 ---
 
+#### Diagrama de memoria de la función `leer_linea()`
+
+<div align="center">
+  <img src="img/Diagrama_de_memoria_leer_linea().png" alt="Diagrama de memoria de la función leer_linea()">
+</div>
+
+>Para esta función se implemento una estructura/diseño dicha [acá](#funciones-de-leer_lineac)
+---
+
 ### Funcionamiento de la funcion `leer_linea_ptr()`
 <div align="center">
 	<img src="img/Diagrama_de_funcion_leer_linea_ptr_().png" alt="Diagrama de flujo función leer_linea_ptr()" width="700" height="1000"/>
 </div>
 
+---
+
+#### Diagrama de memoria de la función `leer_linea_ptr()`
+
+<div align="center">
+  <img src="img/Diagrama_de_memoria_leer_linea_ptr().png" alt="Diagrama de memoria de la función leer_linea_ptr()">
+</div>
+
+>Para esta función se implemento una estructura/diseño dicha [acá](#funciones-de-leer_lineac)
+
+#### ACLARACIÓN
+
+A diferencia de leer_linea(), esta función va a apuntar a un puntero ya inicializado `linea(vector)` el cual a este puntero se le va a asignar la memoria a solicitar, en caso de ser necesario. 
 
 ## 3. Decisiones de diseño
 Para que este programa pueda complementarse bien con las funciones de [leer_linea.c](src/leer_linea.c), quise contextualizar el mismo en una especie de portal de profesor para que agregue a alumnos a un sistema (claramente ficticio).
+
+### Funciones de `leer_linea.c`
 
 Metiendonos más profundo en las funciones del archivo anteriormente mencinado, a la hora de pensar una solución, encontre una función de la biblioteca `<stdio.h>` (Biblioteca del estándar **C99**) la cuál es `fgetc()` la cuál permite una lectura de tipo caractér por caractér hasta un límite que yo le indique, principalmente puede ser un salto de línea o hasta que no haya nada escrito (**Basura**). Mientras que la lectura va sucediendo, yo iré reservando memoria de forma dinámica hasta el límite marcado (Ese caso sucede en la función `leer_linea()`).
 
